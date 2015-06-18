@@ -10,13 +10,14 @@ use AppBundle\Entity\TaskList;
 use AppBundle\Entity\Task;
 
 /*
- * Установка MySQL
- *
- * Установить параметры базы:
+ * Установка
+ * cp app/config/parameters.yml.dist app/config/parameters.yml
  * nano app/config/parameters.yml
- *
  * php app/console doctrine:database:create
  * php app/console doctrine:schema:update --force
+ * php app/console server:run
+ *
+ * Сайт будет доступен по адресу http://localhost:8000/
  */
 
 /**
