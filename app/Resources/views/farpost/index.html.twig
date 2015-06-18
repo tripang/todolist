@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="/angularjs/">Интерфейс на AngularJS</a>
+    <h1>Todo лист</h1>
+
+    <form action="{{ path('create') }}">
+        <input id="new-list" name="list" placeholder="Новый список дел" required />
+    </form>
+
+    <div class="lists">
+    {% for item in lists %}
+        <div id="{{item.i}}">
+            <span class="button add-task"
+                  onclick="addTask({{item.i}});"
+                  title="Новая задача">&#8862;</span>
+
+            <span class="list-name">{{item.list.name}}</span>
+            <span class="button delete-list"
+                  onclick="deleteList({{item.i}}, '{{path('delete', {'list': item.list.name})}}');"
+                  title="Удалить список задач">&#8864;</span>
+
+            <form action="{{ path('create') }}" style="display: none">
+                <input class="task-name" name="task" placeholder="Новая задача" required />
+                <input name="list" value="{{item.list.name}}" style="display: none;" />
+                <input type="submit" style="display: none;" />
+            </form>
+
+            <div class="tasks">
+            {% for task in item.list.tasks %}
+                <div>
+                    <input type="checkbox" onchange="deleteTask(this, '{{
+                        path('delete', {'task': task.name, 'list': item.list.name})
+                    }}');" />
+                    {{task.name}}<br/>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

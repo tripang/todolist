@@ -1,0 +1,29 @@
+body {
+    font-size: large;
+}
+
+.list-name {
+    font-weight: bold;
+}
+
+.add-task {
+    color: limegreen;
+}
+
+.delete-list {
+    color: lightcoral;
+}
+
+.button:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tasks {
+    margin-left: 15px;
+}
+
+.task-name {
+    margin-left: 38px;
+}
+
