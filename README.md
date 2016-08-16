@@ -1,23 +1,23 @@
-farpost todolist
+Todo list - test task
 =======
 
 A Symfony project created on June 16, 2015, 10:48 pm.
 
-# Установка
+# Installation
 
 git clone git@github.com:tripang/todolist.git
 
 cd todolist
 
-Переключиться на ветку runfix - там отключены все gitignore
+Checkout to runfix branch - get files from gitignore
 
 git checkout runfix
 
-надо поменять параметры базы MySQL:
+Configurate MySQL params:
 
 nano app/config/parameters.yml
 
-далее
+Then:
 
 php app/console doctrine:database:create
 
@@ -25,23 +25,14 @@ php app/console doctrine:schema:update --force
 
 php app/console server:run
 
-Сайт должен быть доступен по адресу
+Now site must be available at http://localhost:8000/
 
-http://localhost:8000/
+# api-version
 
-# Примечания
+http://localhost:8000/angularjs/
 
-Постарался сделать по ТЗ - инструментами Symfony.
+The frontend is made on AngularJS. Most of this elements is a copypasted from TodoMVC.
 
-В угоду прозрачности кода запросы не оптимизированы.
-Как вариант для оптимизации в первую очередь необходимо вместо ряда запросов к каждой задаче листа, делать единый join-запрос.
+# todo:
 
-Сделал и API-вариант приложения: http://localhost:8000/angularjs/
-
-В качестве фрэймворка для веб-интерфейса взял наиболее знакомый мне AngularJS. Большую часть элементов интерфейса просто скопировал из TodoMVC. Добавил списки задач в виде вкладок и логику для них. При большом количестве списков вкладки ломают дизайн. Это можно исправить, но в ТЗ нет задачи показать знания верстки и AngularJS, поэтому оставляю, как есть.
-Для api везде включены GET-запросы, т.к. PHP при некоторых настройках может не принять POST-данные от AngularJS. Эта проблема легко решается.
-
-В качестве следующего шага по оптимизации можно рассмотреть кэширование api-запросов.
-
-Полгода назад я задался целью написать удобный для себя todolist. Он доступен по адресу http://ecabanga.com/
-Тудулисты представляют из себя обычный html и редактируются через inline-редактор (CK-Editor). Все работает. Пользуюсь. Конечно, есть к чему стремиться по интерфейсу. Я писал код, когда еще не было плотного опыта работы с Angular. Когда-нибудь перепишу. Планирую сделать так, чтобы можно было использовать один код и для веба и для мобильного приложения.
+Optimise api-requests.
